@@ -16,10 +16,13 @@
     	<p class="aboutme" style="color: red;">
 			about me
 		</p>
-    	<p class="contactme" style="color: black;">
+    	<p class="contactme" style="color: red;">
 			contact me
 		</p>	
     </div>
+	<div class="arrow">
+
+	</div>
 </div>
 	<div class="word">
 	  
@@ -28,7 +31,7 @@
 		<br>so i change to rainfallman <br>
 	    but i still use rainwind this name at most time</p>
 	  
-	    <p class="pcon" style="width: 100%; text-align: center; justify-content: center; display: block;">there is my facebook(although i use it less)<br> <a href="https://www.facebook.com/profile.php?id=100001581180120">rainwind</a>
+	    <p class="pcon" style="width: 100%; text-align: center; justify-content: center; ">there is my facebook(although i use it less)<br> <a href="https://www.facebook.com/profile.php?id=100001581180120">rainwind</a>
 	    <br>my github:<br><a href="https://github.com/rainfallman">rainfallman</a>
     	<br>more info:<br><a href="https://rainfallman.github.io/wp2017/moreintr.html">info</a> 
 		</p>
@@ -36,25 +39,25 @@
 	</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
-    jQuery('.aboutme').mouseover(function(ev){
+	g = function(ev){
 			$('.pabout').fadeIn(1000);
 			$('.pcon').fadeOut(1000);
 			$('.aboutme').css({"color":"black"});
 			$('.contactme').css({"color":"red"});
-	});
-    
-    jQuery('.contactme').mouseover(function(ev){
+	};
+	k = function (ev){
 			$('.pcon').fadeIn(1000);
 			$('.pabout').fadeOut(1000);
 			$('.aboutme').css({"color":"red"});
 			$('.contactme').css({"color":"black"});
-	});
+	};
+    jQuery('.aboutme').mouseover(g);
+    
+    jQuery('.contactme').mouseover(k);
 
-$('.word p').hide();
-$('.aboutme').css({"color":"red"});
-$('.contactme').css({"color":"red"});
 </script><style>
 
+  html{overflow:hidden;}
   .info{
 	height:100%;
 	flex-direction: column;
@@ -62,13 +65,37 @@ $('.contactme').css({"color":"red"});
 	float:left;
 	display:flex;
 	background-color:blue;
+	transition:margin-left 500ms linear;
+	margin-left:-20%;
+	z-index:3;
+	position:relative;
+  }
+  .info:hover
+  {
+	margin-left:0;
   }
   .ininfo{
-	flex:1 1 1px;
+	margin:auto 0;
 	justify-content:center;
 	align-items:center;
 	display:flex;
 	flex-direction:column;
+  }
+  .arrow{
+  
+	top:50%;
+	right:0%;
+	width:50px;
+	height:50px;
+	position:absolute;
+	background-image:url("https://i.imgur.com/z38Hppe.png");
+	background-size:contain;
+	//transform-origin:left;
+	transition:transform 500ms linear;
+  }
+  .info:hover .arrow
+  {
+	transform:rotatey(180deg);
   }
   .info h1,h2,p{
   font-size :60px;
@@ -77,11 +104,12 @@ $('.contactme').css({"color":"red"});
   }
   .word{
 	height:100%;
-	width:75%;
+	/*width:75%;*/
+	margin:0 auto;
 	justify-content:center;
 	text-align:center;
 	display:flex;
-	overflow-y:scroll;
+	/*overflow-y:scroll;*/
   }
   .pcon{
       display:none;
