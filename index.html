@@ -1,34 +1,74 @@
-<html>
-<head>
+
+<html style="
+    height: 100%;
+    width: 100%;
+"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Rainwind's home</title>
 </head>
 <body>
-		<div class='info'>
+		<div class="info">
+    <div class="name" style="
+    flex: 0 0 150px;
+">
 				<h1>Rainwind</h1>
-				<p>
-				about me
-				<br>
-				contact me
-				</p>
-		</div>
-	<div class='word'>
-	  <h1>Rainfallman</h1>
-	    <p>use  rainwind this name at first </p>
-	    <p>but someone had use this name on github .so i change to rainfallman </p>
-	    <p>but i still use rainwind this name at most time</p>
-	  <h2>How to contact me</h2>
-	    <p>there is my facebook(although i use it less)<br> <a href="https://www.facebook.com/profile.php?id=100001581180120">rainwind</a>
-	    <br>my github:<a href="https://github.com/rainfallman">rainfallman</a>
-    	<br>more info:<a href="https://rainfallman.github.io/wp2017/moreintr.html">info</a> 
-		</p>
 	</div>
-  <style>
+    <div class="ininfo">
+    	<p class="aboutme" style="color: red;">
+			about me
+		</p>
+    	<p class="contactme" style="color: black;">
+			contact me
+		</p>	
+    </div>
+</div>
+	<div class="word">
+	  
+	    <p class="pabout" style="width: 100%; text-align: center; justify-content: center; display: none;">use  rainwind this name at first <br>
+	    but someone had use this name on github.
+		<br>so i change to rainfallman <br>
+	    but i still use rainwind this name at most time</p>
+	  
+	    <p class="pcon" style="width: 100%; text-align: center; justify-content: center; display: block;">there is my facebook(although i use it less)<br> <a href="https://www.facebook.com/profile.php?id=100001581180120">rainwind</a>
+	    <br>my github:<br><a href="https://github.com/rainfallman">rainfallman</a>
+    	<br>more info:<br><a href="https://rainfallman.github.io/wp2017/moreintr.html">info</a> 
+		</p>
+       
+	</div>
+    <script src="./r_files/jquery.min.js"></script>
+    <script>
+    jQuery('.aboutme').mouseover(function(ev){
+			$('.pabout').fadeIn(1000);
+			$('.pcon').fadeOut(1000);
+			$('.aboutme').css({"color":"black"});
+			$('.contactme').css({"color":"red"});
+	});
+    
+    jQuery('.contactme').mouseover(function(ev){
+			$('.pcon').fadeIn(1000);
+			$('.pabout').fadeOut(1000);
+			$('.aboutme').css({"color":"red"});
+			$('.contactme').css({"color":"black"});
+	});
+
+$('.word p').hide();
+$('.aboutme').css({"color":"red"});
+$('.contactme').css({"color":"red"});
+</script><style>
 
   .info{
-	  height:100%;
- 	  width:400;
-  	  background-color:blue;
-	  flex:0 0 400px;
+	height:100%;
+	flex-direction: column;
+	width:25%;
+	float:left;
+	display:flex;
+	background-color:blue;
+  }
+  .ininfo{
+	flex:1 1 1px;
+	justify-content:center;
+	align-items:center;
+	display:flex;
+	flex-direction:column;
   }
   .info h1,h2,p{
   font-size :60px;
@@ -36,32 +76,46 @@
   color:black;
   }
   .word{
-  	flex:1 1 1px;
+	height:100%;
+	width:75%;
+	justify-content:center;
+	text-align:center;
+	display:flex;
 	overflow-y:scroll;
   }
-
+  .pcon{
+      display:none;
+      position:absolute;
+      text-align:center;
+    }
+  .pabout{
+      display:none;
+      position:absolute;
+      text-align:center;
+    }
   body{
 		  background-color:white;
 		  background-image:url("https://imgur.com/jcME3T7.jpg");
 		  display: flex;
 		  height :100%;
+		  width:100%;
 		  margin :0;
-  }
-  h1{
-    text-align:center;
-    font-size: 100px;
-    color:red;
-  }
-  h2{
-    text-align:center;
-    font-size:80px;
-    color:red;
   }
   p{
     text-align:center;
     font-size:50px;
     color:red;
+	line-height:2.5em
   }
   </style>
-</body>
-<html>
+
+
+
+
+
+
+
+
+
+
+</body></html>
