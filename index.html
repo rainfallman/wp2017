@@ -22,6 +22,13 @@
 		<div class="arrow">
 
 		</div>
+    <div class="httpajax">          
+      <form action="/get_data" method="get">
+        <font>姓名</font><input name="username" type="text"></input><br>
+        <font>學號</font><input name="studentId" type="text"></input>
+        <input type="submit" value="確定發送"></input>
+      </form>
+    </div>
 	</div>
 	<div class="word">
 	  
@@ -59,15 +66,15 @@
 	g = function(ev){
 			$('.pabout').fadeIn(1000);
 			$('.pcon').fadeOut(1000);
-			$('.aboutme').css({"color":"black"});
-			$('.contactme').css({"color":"red"});
+			$('.aboutme').css({"color":"black"/*"font-size":"20px";*/});
+			$('.contactme').css({"color":"red"/*"font-size":"16px";*/});
 			$('.bo').css({"background-image":"url(https://i.imgur.com/2BS2crc.jpg)"});
 	};
 	k = function (ev){
 			$('.pcon').fadeIn(1000);
 			$('.pabout').fadeOut(1000);
-			$('.aboutme').css({"color":"red"});
-			$('.contactme').css({"color":"black"});
+			$('.aboutme').css({"color":"red"/*"font-size":"16px";*/});
+			$('.contactme').css({"color":"black"/*"font-size":"20px";*/});
 			$('.bo').css({"background-image":"url(https://imgur.com/jcME3T7.jpg)"});
 	};
     jQuery('.aboutme').mouseover(g);
@@ -124,6 +131,10 @@
   .info:hover .arrow
   {
 	transform:rotatey(180deg);
+  }
+  .httpajax{
+  width:100%;
+  flex:0 0 150px;
   }
   .info h1{
   font-size :60px;
