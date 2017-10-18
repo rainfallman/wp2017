@@ -24,7 +24,7 @@
 		</div>
     <div class="httpajax">
     </div>
-      <div>
+      <div class="form">
         <input name="word" type="text" placeholder="請輸入你的幹話"></input>
         <button type="submit">發送</button>
       </div>
@@ -80,13 +80,15 @@
     
     jQuery('.contactme').mouseover(k);
 
-
-
+     var d2 = new Date();
+     var showday=d2.toDateString();
+     var showhour=d2.getUTCHours();
+     var showmin=d2.getUTCMinutes();
 
     $(document).ready(function(){
 
 
-    $('button').click(function(){
+    /*$('button').click(function(){
         $.ajax({
             dataType:'html',
             url: "httpajax.php",
@@ -95,7 +97,32 @@
             $(".httpajax").html(data);},
         });
         $('input').val("");
+    });*/
+
+    $('button').click(function(){
+        $.ajax({
+            dataType:'html',
+            url: "httpajax.php?showday="+showday,
+            data: {word: $('input[name=word]').val(),
+                   showhour: showhour,
+                   showmin:showmin
+            },                                    
+            success:function(data){
+            $(".httpajax").html(data);},
+        });
+        $('input').val("");
     });
+
+   /*$('button').click(function(){
+        $.ajax({
+            method: "POST",
+            url: "httpajax.php",
+            data: {word: $('input[name=word]').val()}
+        }).done(function(data){
+            $(".httpajax").html(data);
+            $('input').val("");
+        });
+    }); */
 
    /*$('httpajax').keydown(function(e){
        if(e.keyCode == 13) {
@@ -167,6 +194,7 @@
   }
   .httpajax{
   width:100%;
+  overflow-y:auto;
   flex:0 0 150px;
   }
   .info h1{
@@ -216,7 +244,7 @@
     color:red;
 	line-height:2.5em
   }
-  form{
+  .form{
   margin:0 auto;
   }
   </style>
