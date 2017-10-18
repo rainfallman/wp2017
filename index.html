@@ -22,14 +22,13 @@
 		<div class="arrow">
 
 		</div>
-    <div class="httpajax">          
-      <form action="/get_data" method="get">
-        <font>姓名</font><input name="username" type="text"></input><br>
-        <font>學號</font><input name="studentId" type="text"></input>
-        <input type="submit" value="確定發送"></input>
-      </form>
+    <div class="httpajax">
     </div>
-	</div>
+      <div>
+        <input name="word" type="text" placeholder="請輸入你的幹話"></input>
+        <button type="submit">發送</button>
+      </div>
+  </div>
 	<div class="word">
 	  
 	    <p class="pabout">
@@ -81,7 +80,41 @@
     
     jQuery('.contactme').mouseover(k);
 
-</script><style>
+
+
+
+    $(document).ready(function(){
+
+
+    $('button').click(function(){
+        $.ajax({
+            dataType:'html',
+            url: "httpajax.php",
+            data: {word: $('input[name=word]').val()},
+            success:function(data){
+            $(".httpajax").html(data);},
+        });
+        $('input').val("");
+    });
+
+   /*$('httpajax').keydown(function(e){
+       if(e.keyCode == 13) {
+           $.ajax({
+                method: "POST",
+                url: "httpajax.php",
+                data: {text: $('input').val()}
+            }).done(function(data){
+                $("#httpajax").html(data);
+                $('input').val("");
+            });
+       }
+    });*/
+});
+
+
+
+</script>
+<style>
 
   html{overflow:hidden;}
   .info{
@@ -182,6 +215,9 @@
     font-size:50px;
     color:red;
 	line-height:2.5em
+  }
+  form{
+  margin:0 auto;
   }
   </style>
 
