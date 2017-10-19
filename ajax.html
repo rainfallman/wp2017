@@ -22,6 +22,12 @@
 		<div class="arrow">
 
 		</div>
+    <div class="httpajax">
+    </div>
+      <div>
+        <input name="word" type="text" placeholder="請輸入你的幹話"></input>
+        <button type="submit">發送</button>
+      </div>
   </div>
 	<div class="word">
 	  
@@ -75,6 +81,35 @@
     jQuery('.contactme').mouseover(k);
 
 
+
+
+    $(document).ready(function(){
+
+
+    $('button').click(function(){
+        $.ajax({
+            dataType:'html',
+            url: "httpajax.php",
+            data: {word: $('input[name=word]').val()},
+            success:function(data){
+            $(".httpajax").html(data);},
+        });
+        $('input').val("");
+    });
+
+   /*$('httpajax').keydown(function(e){
+       if(e.keyCode == 13) {
+           $.ajax({
+                method: "POST",
+                url: "httpajax.php",
+                data: {text: $('input').val()}
+            }).done(function(data){
+                $("#httpajax").html(data);
+                $('input').val("");
+            });
+       }
+    });*/
+});
 
 
 
@@ -187,5 +222,13 @@
   </style>
 
 
-	</body>
-</html>
+
+
+
+
+
+
+
+
+
+</body></html>
